@@ -36,7 +36,7 @@ function showattachmentsforum_info()
 		"author"			=> "Starpaul20",
 		"authorsite"		=> "http://galaxiesrealm.com/",
 		"version"			=> "1.0",
-		"guid"				=> "",
+		"guid"				=> "b6ab3b86822bd1dbafd222baeb5281d5",
 		"compatibility"		=> "16*"
 	);
 }
