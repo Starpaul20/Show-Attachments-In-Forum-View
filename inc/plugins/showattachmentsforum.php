@@ -29,9 +29,12 @@ $plugins->add_hook("build_friendly_wol_location_end", "showattachmentsforum_onli
 // The information that shows up on the plugin manager
 function showattachmentsforum_info()
 {
+	global $lang;
+	$lang->load("showattachmentsforum", true);
+
 	return array(
-		"name"				=> "Show Attachments In Forum View",
-		"description"		=> "Adds a pop-up in forum view to show the attachments in a thread.",
+		"name"				=> $lang->showattachmentsforum_info_name,
+		"description"		=> $lang->showattachmentsforum_info_desc,
 		"website"			=> "http://galaxiesrealm.com/index.php",
 		"author"			=> "Starpaul20",
 		"authorsite"		=> "http://galaxiesrealm.com/index.php",

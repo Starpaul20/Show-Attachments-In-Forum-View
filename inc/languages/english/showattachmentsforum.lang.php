@@ -4,6 +4,9 @@
  * Copyright 2012 Starpaul20
  */
 
+$l['showattachmentsforum_info_name'] = "Show Attachments In Forum View";
+$l['showattachmentsforum_info_desc'] = "Adds a pop-up in forum view to show the attachments in a thread.";
+
 $l['attachments'] = "Attachments";
 $l['attachment'] = "Attachment";
 $l['file_size'] = "File Size";
