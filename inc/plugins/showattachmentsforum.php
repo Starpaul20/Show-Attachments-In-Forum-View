@@ -32,12 +32,11 @@ function showattachmentsforum_info()
 	return array(
 		"name"				=> "Show Attachments In Forum View",
 		"description"		=> "Adds a pop-up in forum view to show the attachments in a thread.",
-		"website"			=> "http://galaxiesrealm.com/",
+		"website"			=> "http://galaxiesrealm.com/index.php",
 		"author"			=> "Starpaul20",
-		"authorsite"		=> "http://galaxiesrealm.com/",
+		"authorsite"		=> "http://galaxiesrealm.com/index.php",
 		"version"			=> "1.0",
-		"guid"				=> "b6ab3b86822bd1dbafd222baeb5281d5",
-		"compatibility"		=> "16*"
+		"compatibility"		=> "18*"
 	);
 }
 
