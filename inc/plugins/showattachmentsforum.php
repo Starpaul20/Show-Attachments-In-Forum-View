@@ -107,7 +107,7 @@ function showattachmentsforum_activate()
 
 	// Update templates
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
-	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<img src="{$theme[\'imgdir\']}/paperclip.gif" alt="" title="{$attachment_count}" />')."#i", '<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.gif" alt="" title="{$attachment_count}" /></a>');
+	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />')."#i", '<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>');
 }
 
 // This function runs when the plugin is deactivated.
@@ -117,7 +117,7 @@ function showattachmentsforum_deactivate()
 	$db->delete_query("templates", "title IN('misc_showattachments','misc_showattachments_attachement','misc_showattachments_no_attachments')");
 
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
-	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.gif" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.gif" alt="" title="{$attachment_count}" />');
+	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />');
 }
 
 // Show attachments pop-up
