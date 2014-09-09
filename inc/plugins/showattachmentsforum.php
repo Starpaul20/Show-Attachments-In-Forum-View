@@ -51,12 +51,8 @@ function showattachmentsforum_activate()
 	// Insert templates
 	$insert_array = array(
 		'title'		=> 'misc_showattachments',
-		'template'	=> $db->escape_string('<html>
-<head>
-<title>{$lang->attachments}</title>
-{$headerinclude}
-</head>
-<body>
+		'template'	=> $db->escape_string('<div class="modal">
+<div style="overflow-y: auto; max-height: 400px;">
 <table width="100%" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" border="0" class="tborder">
 <tr>
 <td class="thead" colspan="3"><strong>{$lang->attachments}</strong></td>
@@ -73,8 +69,8 @@ function showattachmentsforum_activate()
 </td>
 </tr>
 </table>
-</body>
-</html>'),
+</div>
+</div>'),
 		'sid'		=> '-1',
 		'version'	=> '',
 		'dateline'	=> TIME_NOW
@@ -107,7 +103,7 @@ function showattachmentsforum_activate()
 
 	// Update templates
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
-	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />')."#i", '<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>');
+	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />')."#i", '<a href="javascript:;" onclick="MyBB.popupWindow(\'/misc.php?action=showattachments&amp;tid={$thread[\'tid\']}\'); return false;"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>');
 }
 
 // This function runs when the plugin is deactivated.
@@ -117,13 +113,13 @@ function showattachmentsforum_deactivate()
 	$db->delete_query("templates", "title IN('misc_showattachments','misc_showattachments_attachement','misc_showattachments_no_attachments')");
 
 	include MYBB_ROOT."/inc/adminfunctions_templates.php";
-	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:MyBB.popupWindow(\'misc.php?action=showattachments&tid={$thread[\'tid\']}\', \'showattachments\', \'500\', \'450\')"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />');
+	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:;" onclick="MyBB.popupWindow(\'/misc.php?action=showattachments&amp;tid={$thread[\'tid\']}\'); return false;"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />');
 }
 
 // Show attachments pop-up
 function showattachmentsforum_run()
 {
-	global $db, $mybb, $lang, $templates, $theme, $headerinclude;
+	global $db, $mybb, $lang, $templates, $theme;
 	$lang->load("showattachmentsforum");
 
 	if($mybb->input['action'] == "showattachments")
@@ -198,8 +194,9 @@ function showattachmentsforum_run()
 
 		$thread['threadlink'] = get_thread_link($thread['tid']);
 
-		eval("\$showattachments = \"".$templates->get("misc_showattachments")."\";");
-		output_page($showattachments);
+		eval("\$showattachments = \"".$templates->get("misc_showattachments", 1, 0)."\";");
+		echo $showattachments;
+		exit;
 	}
 }
 
@@ -223,7 +220,7 @@ function showattachmentsforum_online_activity($user_activity)
 
 function showattachmentsforum_online_location($plugin_array)
 {
-    global $lang, $parameters, $threads;
+	global $lang, $parameters, $threads;
 	$lang->load("showattachmentsforum");
 
 	if($plugin_array['user_activity']['activity'] == "misc_showattachments")
