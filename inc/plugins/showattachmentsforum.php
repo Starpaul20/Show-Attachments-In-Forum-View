@@ -125,7 +125,7 @@ function showattachmentsforum_run()
 
 	if($mybb->input['action'] == "showattachments")
 	{
-		$tid = $mybb->get_input('tid', 1);
+		$tid = $mybb->get_input('tid', MyBB::INPUT_INT);
 		$thread = get_thread($tid);
 
 		// Is the currently logged in user a moderator of this forum?
