@@ -129,7 +129,7 @@ function showattachmentsforum_run()
 		$thread = get_thread($tid);
 
 		// Is the currently logged in user a moderator of this forum?
-		if(is_moderator($thread['fid']))
+		if(is_moderator($thread['fid'], "canviewunapprove"))
 		{
 			$ismod = true;
 			$visible = "AND (p.visible='0' OR p.visible='1')";
