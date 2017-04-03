@@ -239,4 +239,3 @@ function showattachmentsforum_online_location($plugin_array)
 
 	return $plugin_array;
 }
-?>

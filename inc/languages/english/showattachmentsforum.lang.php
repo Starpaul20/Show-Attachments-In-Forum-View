@@ -20,5 +20,3 @@ $l['viewing_attachments'] = "Viewing Attachements for Thread";
 
 $l['error_invalidthread'] = "The specified thread does not exist.";
 $l['error_invalidforum'] = "Invalid forum";
-
-?>
