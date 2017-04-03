@@ -11,7 +11,7 @@ if(!defined("IN_MYBB"))
 }
 
 // Neat trick for caching our custom template(s)
-if(my_strpos($_SERVER['PHP_SELF'], 'misc.php'))
+if(THIS_SCRIPT == 'misc.php')
 {
 	global $templatelist;
 	if(isset($templatelist))
