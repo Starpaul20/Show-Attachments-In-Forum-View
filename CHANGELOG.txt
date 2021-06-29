@@ -1,3 +1,12 @@
+1.1 (June 29th, 2021)
+- Updated javascript links
+- Removed PHP closing tags
+- Use THIS_SCRIPT for template caching
+- Adding License file
+- Added check to see if THIS_SCRIPT is defined
+- Fixed PHP 8.0 errors
+- Use require_once for template updates
+
 1.0.1 (March 22nd, 2015)
 - Updated get_input
 - Updated moderator check

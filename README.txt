@@ -1,6 +1,6 @@
 ## INFORMATION ##
 
-Show Attachments In Forum View (1.0.1) for MyBB 1.8
+Show Attachments In Forum View (1.1) for MyBB 1.8
 Created by: Starpaul20
 Copyright: ©2012
 License: GPL
@@ -22,4 +22,4 @@ The 'oldrelease' branch contains the 1.6 version of the plugin.
 
 ## UPDATING ##
 
-If you're updating from any previous version, you only need to overwrite old files with the new ones, no need to deactivate.
+If you're updating from any previous version, you must first deactivate the plugin, upload all new files and reactivate.
