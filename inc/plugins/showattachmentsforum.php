@@ -11,14 +11,17 @@ if(!defined("IN_MYBB"))
 }
 
 // Neat trick for caching our custom template(s)
-if(THIS_SCRIPT == 'misc.php')
+if(defined('THIS_SCRIPT'))
 {
-	global $templatelist;
-	if(isset($templatelist))
+	if(THIS_SCRIPT == 'misc.php')
 	{
-		$templatelist .= ',';
+		global $templatelist;
+		if(isset($templatelist))
+		{
+			$templatelist .= ',';
+		}
+		$templatelist .= 'misc_showattachments,misc_showattachments_attachement,misc_showattachments_no_attachments';
 	}
-	$templatelist .= 'misc_showattachments,misc_showattachments_attachement,misc_showattachments_no_attachments';
 }
 
 // Tell MyBB when to run the hooks
