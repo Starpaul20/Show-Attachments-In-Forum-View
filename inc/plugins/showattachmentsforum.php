@@ -173,6 +173,7 @@ function showattachmentsforum_run()
 		check_forum_password($forum['fid']);
 
 		// Fetch the attachements for this thread
+		$attachment_bit = '';
 		$query = $db->query("
 			SELECT a.*
 			FROM ".TABLE_PREFIX."attachments a
