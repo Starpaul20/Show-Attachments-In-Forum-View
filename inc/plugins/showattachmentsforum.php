@@ -106,7 +106,7 @@ function showattachmentsforum_activate()
 	$db->insert_query("templates", $insert_array);
 
 	// Update templates
-	include MYBB_ROOT."/inc/adminfunctions_templates.php";
+	require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />')."#i", '<a href="javascript:void(0)" onclick="MyBB.popupWindow(\'/misc.php?action=showattachments&amp;tid={$thread[\'tid\']}\'); return false;"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>');
 }
 
@@ -116,7 +116,7 @@ function showattachmentsforum_deactivate()
 	global $db;
 	$db->delete_query("templates", "title IN('misc_showattachments','misc_showattachments_attachement','misc_showattachments_no_attachments')");
 
-	include MYBB_ROOT."/inc/adminfunctions_templates.php";
+	require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:void(0)" onclick="MyBB.popupWindow(\'/misc.php?action=showattachments&amp;tid={$thread[\'tid\']}\'); return false;"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />');
 	find_replace_templatesets("forumdisplay_thread_attachment_count", "#".preg_quote('<a href="javascript:;" onclick="MyBB.popupWindow(\'/misc.php?action=showattachments&amp;tid={$thread[\'tid\']}\'); return false;"><img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" /></a>')."#i", '<img src="{$theme[\'imgdir\']}/paperclip.png" alt="" title="{$attachment_count}" />'); // Included just in case
 }
